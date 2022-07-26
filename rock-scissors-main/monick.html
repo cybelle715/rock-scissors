@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+let playerScore = 0;
+let computerScore = 0;
+
+// gives a random value from the array
+function computerPlay() {
+  let choice = ['rock', 'paper', 'scissors'];
+  let randomPlay = Math.floor(Math.random() * choice.length);
+  return choice[randomPlay]
+}
+// plays a round of a game
+function round() {
+  let computerChoice = computerPlay();
+  let playerChoice = console.log('What do you choose?', ''.toLowerCase());
+
+  if (playerChoice === 'rock' & computerChoice === 'paper') {
+    computerScore += 1;
+    console.log('You lose, paper beats rock!');
+  } else if (playerChoice === 'paper' & computerChoice === 'scissors') {
+    computerScore += 1;
+    console.log('You lose, scissors beat paper!');
+  } else if (playerChoice === 'scissors' & computerChoice === 'paper') {
+    computerScore += 1;
+    console.log('You lose, rock beats scissors!');
+  } else if (playerChoice === 'rock' & computerChoice === 'scissors') {
+    playerScore += 1;
+    console.log('You win, rock beats scissors!');
+  } else if (playerChoice === 'paper' & computerChoice === 'rock') {
+    playerScore += 1;
+    console.log('You win, paper beats rock!');
+  } else if (playerChoice === 'scissors' & computerChoice === 'paper') {
+    playerScore += 1;
+    console.log('You win, scissors beat paper!');
+  }
+  if (playerScore >= 3) {
+    console.log('You win the game!')
+  } else if (computerScore >= 3) {
+    console.log('Computer wins the game!')
+  }
+}
+
+//repeats rounds until someone wins the game
+function game() {
+  for (i = 1; playerScore < 5 && computerScore < 5; i++) {
+    round();
+  }
+}
+game();
+    
+    </script>
+    </body>
+</html>
